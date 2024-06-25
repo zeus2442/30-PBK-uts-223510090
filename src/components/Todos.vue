@@ -88,9 +88,10 @@ const removeTask = (index) => {
 <style scoped>
 .container {
   position: fixed;
-  left: 43%;
-  top: 30%;
-  width: 20%;
+  left: 32%;
+  top: 20%;
+  width: 40%;
+  bottom: 20%;
 }
 .list-unstyled {
   color: white;

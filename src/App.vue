@@ -1,69 +1,68 @@
-<template>
-  <div class="background">
-    <img
-      src="https://wallpaperwaifu.com/wp-content/uploads/2023/12/ocean-wave-thumb.jpg"
-    />
-  </div>
-  <div>
-    <nav>
-      <div class="Navbar">
-        <button @click="TampilTudos" class="btn">Tudos</button>
-        <button @click="Tampilpost" class="btn">Post</button>
+  <template>
+    <div>
+      <div class="background">
+        <img src="https://wallpaperwaifu.com/wp-content/uploads/2023/12/ocean-wave-thumb.jpg" />
       </div>
-    </nav>
-  </div>
-  <Tudos v-if="OnTudo" />
-  <Post v-if="OnPost" />
-</template>
+      <nav class="navbar">
+        <router-link to="/todos" class="btn">Todos</router-link>
+        <router-link to="/posts" class="btn">Posts</router-link>
+        <router-link to="/albums" class="btn">Albums</router-link>
+      </nav>
+      <router-view />
+      <q-footer class="footer">
+        <div class="footer-content">
+          © 2024 Fauzi | All Rights Reserved
+        </div>
+      </q-footer>
+    </div>
+  </template>
 
-<script setup>
-import { ref } from "vue";
-import Tudos from "./components/Tudos.vue";
-import Post from "./components/Post.vue";
+  <script setup>
+  import { Quasar } from 'quasar'
 
-const OnTudo = ref(true);
-const OnPost = ref(false);
+  // Import Quasar styles
+  import 'quasar/src/css/index.sass'
+  </script>
 
-const TampilTudos = () => {
-  OnTudo.value = true;
-  OnPost.value = false;
-};
-
-const Tampilpost = () => {
-  OnTudo.value = false;
-  OnPost.value = true;
-};
-</script>
-
-<style scoped>
-.Navbar {
-  position: fixed;
-  top: 5%;
-  left: 32%;
-}
-.Navbar button {
-  color: white;
-  font-size: 30px;
-  margin-left: 150px;
-}
-.Navbar button:hover {
-  border-width: 2px;
-  padding: 0 20px;
-  font-size: 20px;
-  border-style: solid;
-  border-color: wheat;
-}
-.background img {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  min-width: 100%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -2;
-  object-fit: cover;
-  filter: brightness(0.8);
-}
-</style>
+  <style scoped>
+  .navbar {
+    position: fixed;
+    top: 5%;
+    left: 32%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-left: 8%;
+  }
+  .navbar .btn {
+    color: white;
+    font-size: 20px;
+  }
+  .background img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+  .footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  </style>

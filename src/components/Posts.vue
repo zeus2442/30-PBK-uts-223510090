@@ -87,9 +87,10 @@ onMounted(() => {
 <style scoped>
 .post-section {
   position: fixed;
-  left: 43%;
-  top: 30%;
-  width: 20%;
+  left: 32%;
+  top: 20%;
+  width: 40%;
+  bottom: 20%;
 }
 .content-section {
   display: flex;
